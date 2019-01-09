@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Auth.scss';
-import authRequests from '../../helpers/data/authRequests';
+import authRequests from '../../../helpers/data/authRequests';
 
 import googleButton from './images/login-google.png';
 
@@ -13,14 +13,14 @@ class Auth extends React.Component {
   authenticateUser = (e) => {
     e.preventDefault();
     authRequests.authenticate().then(() => {
-      this.props.isAuthenticated();
+      this.props.history.push('/home');
     }).catch(err => console.error('error in auth', err));
   }
 
   render() {
     return (
       <div className='Auth'>
-        <button className='btn btn-danger login-button' onClick={this.authenticateUser}>
+        <button className='btn btn-danger' onClick={this.authenticateUser}>
           <img src={googleButton} alt="google login button" width="400px"/>
         </button>
       </div>
