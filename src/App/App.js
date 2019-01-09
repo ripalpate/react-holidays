@@ -61,14 +61,6 @@ class App extends React.Component {
       this.setState({ authed: false });
     };
 
-    // if (!this.state.authed) {
-    //   return (
-    //     <div className="App">
-    //     <MyNavBar isAuthed={this.state.authed} logoutClickEvent={logoutClickEvent}/>
-    //     <Auth isAuthenticated={this.isAuthenticated}/>
-    //     </div>
-    //   );
-    // }
     return (
       <div className="App">
         <BrowserRouter>
