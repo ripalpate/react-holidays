@@ -11,8 +11,8 @@ class Friends extends React.Component {
 
   render() {
     return (
-      <div className="Friends" id="1234" to="/friend/:id/edit" onClick={this.changeView}>
-        <Button className ="btn btn-info">Edit Friend</Button>
+      <div className="Friends mx-auto" id="1234" to="/friend/:id/edit" onClick={this.changeView}>
+        <Button className ="btn btn-info mt-5">Edit Friend</Button>
       </div>
     );
   }

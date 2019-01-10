@@ -10,8 +10,8 @@ class Holidays extends React.Component {
 
   render() {
     return (
-      <div className="Holidays">
-        <Button className="btn btn-info" id="1234" onClick={this.changeView}>Holiday Detail</Button>
+      <div className="Holidays mx-auto">
+        <Button className="btn btn-info mt-5" id="1234" onClick={this.changeView}>Holiday Detail</Button>
       </div>
     );
   }

@@ -6,16 +6,19 @@ import './HolidayDetail.scss';
 class HolidayDetail extends React.Component {
   changeView = (e) => {
     const view = e.currentTarget.id;
-    console.log(view);
     this.props.history.push(`/holidays/:${view}/edit`);
+  }
+
+  changeViewFriend = (e) => {
+    const view = e.currentTarget.id;
     this.props.history.push(`/holidays/:${view}/friends`);
   }
 
   render() {
     return (
-      <div className="HolidayDetail">
-        <Button className ="btn btn-info"id="1234" onClick={this.changeView}>Edit Holiday</Button>
-        <Button className ="btn btn-info" id="1234" onClick={this.changeView}>Add Friends To Holiday</Button>
+      <div className="HolidayDetail mx-auto">
+        <Button className ="btn btn-info m-4"id="1234" onClick={this.changeView}>Edit Holiday</Button>
+        <Button className ="btn btn-info m-5" id="1234" onClick={this.changeViewFriend}>Add Friends To Holiday</Button>
       </div>
     );
   }

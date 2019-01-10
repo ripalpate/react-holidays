@@ -78,18 +78,18 @@ class App extends React.Component {
         <BrowserRouter>
           <React.Fragment>
           <MyNavBar isAuthed={authed} logoutClickEvent={logoutClickEvent}/>
-          <div className="appContainer">
+          <div className="container">
             <div className="row">
               <Switch>
                 <PrivateRoute exact path="/" component={Home} authed={this.state.authed}/>
                 <PrivateRoute path="/home" component={Home} authed={this.state.authed}/>
                 <PrivateRoute exact path="/friends/" authed={this.state.authed} component={Friends}/>
                 <PrivateRoute exact path="/holidays/" authed={this.state.authed} component={Holidays}/>
+                <PrivateRoute path="/holidays/new" authed={this.state.authed} component={NewHoliday}/>
                 <PrivateRoute exact path="/holidays/:id" authed={this.state.authed} component={HolidayDetail}/>
                 <PrivateRoute path="/holidays/:id/edit" authed={this.state.authed} component={EditHoliday}/>
                 <PrivateRoute path="/holidays/:id/friends" authed={this.state.authed} component={holidayFriends}/>
                 <PrivateRoute path="/friends/new" authed={this.state.authed} component={NewFriend}/>
-                <PrivateRoute path="/holidays/new" authed={this.state.authed} component={NewHoliday}/>
                 <PrivateRoute path='/friends/:id/edit' authed={this.state.authed} component={EditFriend}/>
                 <PublicRoute path="/auth" component={Auth} authed={this.state.authed}/>
               </Switch>
