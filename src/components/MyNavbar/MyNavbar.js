@@ -42,13 +42,13 @@ class MyNavbar extends React.Component {
               <NavLink tag={RRNavLink} to="/friends/">Friends</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} to="">New Friend</NavLink>
+              <NavLink tag={RRNavLink} to="/NewFriend">New Friend</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} to="">Holidays</NavLink>
+              <NavLink tag={RRNavLink} to="/Holidays">Holidays</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} to="">New Holiday</NavLink>
+              <NavLink tag={RRNavLink} to="/NewHoliday">New Holiday</NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={logoutClickEvent}>Logout</NavLink>

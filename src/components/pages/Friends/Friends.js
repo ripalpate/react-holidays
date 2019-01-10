@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import './Friends.scss';
 
 // const firebaseId = this.props.match.params.id;
@@ -9,11 +10,9 @@ class Friends extends React.Component {
   }
 
   render() {
-    const { match } = this.props;
-
     return (
-      <div className="Friends" match={match} id="1234" onClick={this.changeView}>
-        <button className = "btn btn-info">Edit Friend</button>
+      <div className="Friends" id="1234" to="/friend/:id/edit" onClick={this.changeView}>
+        <Button className ="btn btn-info">Edit Friend</Button>
       </div>
     );
   }
