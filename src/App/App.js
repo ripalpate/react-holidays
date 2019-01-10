@@ -9,6 +9,8 @@ import authRequests from '../helpers/data/authRequests';
 import Auth from '../components/pages/Auth/Auth';
 import Home from '../components/pages/Home/Home';
 import MyNavBar from '../components/MyNavbar/MyNavbar';
+import Friends from '../components/pages/Friends/Friends';
+import EditFriend from '../components/pages/EditFriend/EditFriend';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
@@ -71,6 +73,8 @@ class App extends React.Component {
               <Switch>
                 <PrivateRoute exact path="/" component={Home} authed={this.state.authed}/>
                 <PrivateRoute path="/home" component={Home} authed={this.state.authed}/>
+                <PrivateRoute path="/friends/" authed={this.state.authed} component={Friends}/>
+                <PrivateRoute path='/friends/:id/edit' authed={this.state.authed} component={EditFriend}/>
                 <PublicRoute path="/auth" component={Auth} authed={this.state.authed}/>
               </Switch>
 
