@@ -20,7 +20,7 @@ class Auth extends React.Component {
   render() {
     return (
       <div className='Auth'>
-        <button className='btn btn-danger' onClick={this.authenticateUser}>
+        <button className='btn btn-secondary' onClick={this.authenticateUser}>
           <img src={googleButton} alt="google login button" width="400px"/>
         </button>
       </div>

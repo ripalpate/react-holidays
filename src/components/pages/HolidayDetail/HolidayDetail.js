@@ -17,8 +17,8 @@ class HolidayDetail extends React.Component {
   render() {
     return (
       <div className="HolidayDetail mx-auto">
-        <Button className ="btn btn-info m-4"id="1234" onClick={this.changeView}>Edit Holiday</Button>
-        <Button className ="btn btn-info m-5" id="1234" onClick={this.changeViewFriend}>Add Friends To Holiday</Button>
+        <Button className ="btn btn-success m-4"id="1234" onClick={this.changeView}>Edit Holiday</Button>
+        <Button className ="btn btn-success m-5" id="1234" onClick={this.changeViewFriend}>Add Friends To Holiday</Button>
       </div>
     );
   }
