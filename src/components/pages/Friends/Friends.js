@@ -12,7 +12,7 @@ class Friends extends React.Component {
   render() {
     return (
       <div className="Friends mx-auto" id="1234" to="/friend/:id/edit" onClick={this.changeView}>
-        <Button className ="btn btn-info mt-5">Edit Friend</Button>
+        <Button className ="btn btn-success mt-5">Edit Friend</Button>
       </div>
     );
   }
