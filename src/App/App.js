@@ -16,6 +16,9 @@ import NewHoliday from '../components/pages/NewHoliday/NewHoliday';
 import EditFriend from '../components/pages/EditFriend/EditFriend';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+import HolidayDetail from '../components/pages/HolidayDetail/HolidayDetail';
+import EditHoliday from '../components/pages/EditHoliday/EditHoliday';
+import holidayFriends from '../components/pages/HolidayFriends/HolidayFriends';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -82,8 +85,11 @@ class App extends React.Component {
                 <PrivateRoute path="/home" component={Home} authed={this.state.authed}/>
                 <PrivateRoute exact path="/friends/" authed={this.state.authed} component={Friends}/>
                 <PrivateRoute exact path="/holidays/" authed={this.state.authed} component={Holidays}/>
-                <PrivateRoute exact path="/Newfriend/" authed={this.state.authed} component={NewFriend}/>
-                <PrivateRoute exact path="/NewHoliday/" authed={this.state.authed} component={NewHoliday}/>
+                <PrivateRoute exact path="/holidays/:id" authed={this.state.authed} component={HolidayDetail}/>
+                <PrivateRoute path="/holidays/:id/edit" authed={this.state.authed} component={EditHoliday}/>
+                <PrivateRoute path="/holidays/:id/friends" authed={this.state.authed} component={holidayFriends}/>
+                <PrivateRoute path="/friends/new" authed={this.state.authed} component={NewFriend}/>
+                <PrivateRoute path="/holidays/new" authed={this.state.authed} component={NewHoliday}/>
                 <PrivateRoute path='/friends/:id/edit' authed={this.state.authed} component={EditFriend}/>
                 <PublicRoute path="/auth" component={Auth} authed={this.state.authed}/>
               </Switch>
