@@ -11,7 +11,7 @@ class Home extends React.Component {
     return (
       <div className="Home mx-auto">
         <div className="card-deck mt-5">
-          <div className="card border-dark" id="home" onClick={this.changeView}>
+          <div className="card border-dark" id="friends" onClick={this.changeView}>
             <div className="card-body home text-center">
               <h4 className="card-title"><i className="fas fa-user-friends fa-6x home-friend"></i></h4>
               <h5 className="card-subtitle mb-2 text-muted">Friends</h5>
