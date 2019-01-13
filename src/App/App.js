@@ -19,7 +19,6 @@ import './App.scss';
 import HolidayDetail from '../components/pages/HolidayDetail/HolidayDetail';
 import EditHoliday from '../components/pages/EditHoliday/EditHoliday';
 import holidayFriends from '../components/pages/HolidayFriends/HolidayFriends';
-import friendsRequests from '../helpers/data/friendsRequests';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -40,17 +39,10 @@ class App extends React.Component {
   state = {
     authed: false,
     pendingUser: true,
-    friends: [],
   }
 
   componentDidMount() {
     connection();
-    friendsRequests.getFriendsRequest()
-      .then((friends) => {
-        console.log(friends);
-        this.setState({friends})
-      }).catch(err => console.error(err));
-
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -91,7 +83,7 @@ class App extends React.Component {
               <Switch>
                 <PrivateRoute exact path="/" component={Home} authed={this.state.authed}/>
                 <PrivateRoute path="/home" component={Home} authed={this.state.authed}/>
-                <PrivateRoute exact path="/friends/" authed={this.state.authed} component={Friends} friends={this.state.friends}/>/>
+                <PrivateRoute exact path="/friends/" authed={this.state.authed} component={Friends}/>
                 <PrivateRoute exact path="/holidays/" authed={this.state.authed} component={Holidays}/>
                 <PrivateRoute path="/holidays/new" authed={this.state.authed} component={NewHoliday}/>
                 <PrivateRoute exact path="/holidays/:id" authed={this.state.authed} component={HolidayDetail}/>
