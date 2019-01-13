@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import friendsRequests from '../../../helpers/data/friendsRequests';
 import SingleFriend from '../SingleFriend/SingleFriend';
 import './Friends.scss';
+import authRequests from '../../../helpers/data/authRequests';
 
 // const firebaseId = this.props.match.params.id;
 class Friends extends React.Component {
@@ -10,10 +11,25 @@ class Friends extends React.Component {
     friends: [],
   }
 
-  componentDidMount() {
-    friendsRequests.getFriendsRequest()
+  getFriends = () => {
+    const uid = authRequests.getCurrentUid();
+    friendsRequests.getFriendsRequest(uid)
       .then((friends) => {
         this.setState({ friends });
+      }).catch(err => console.error(err));
+  }
+
+  componentDidMount() {
+    this.getFriends();
+  }
+
+  deleteOne = (friendId) => {
+    friendsRequests.deleteFriend(friendId)
+      .then(() => {
+        friendsRequests.getFriendsRequest()
+          .then((friends) => {
+            this.setState({ friends });
+          });
       }).catch(err => console.error(err));
   }
 
@@ -27,6 +43,7 @@ class Friends extends React.Component {
       <SingleFriend
       friend={friend}
       key={friend.id}
+      deleteSingleFriend= {this.deleteOne}
       />));
     return (
       <div className="Friends mx-auto" id="1234" to="/friend/:id/edit" onClick={this.changeView}>

@@ -1,10 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './SingleFriend.scss';
 import friendsShape from '../../../helpers/propz/friendsShape';
 import authRequests from '../../../helpers/data/authRequests';
+
 class SingleFriend extends React.Component {
   static propTypes = {
     message: friendsShape,
+    deleteSingleFriend: PropTypes.func,
+  }
+
+  deleteEvent = (e) => {
+    e.preventDefault();
+    const { deleteSingleFriend, friend } = this.props;
+    deleteSingleFriend(friend.id);
   }
 
   render() {
@@ -14,12 +23,13 @@ class SingleFriend extends React.Component {
       if (friend.uid === uid) {
         return (
             <span className="">
-              <button className="btn btn-danger">
+              <button className="btn btn-danger" onClick= {this.deleteEvent}>
                 <i className="fas fa-trash-alt"></i>
               </button>
             </span>
         );
       }
+      return <span className=""></span>;
     };
 
     return (

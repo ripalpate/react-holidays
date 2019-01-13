@@ -3,9 +3,9 @@ import apiKeys from '../apiKeys';
 
 const firebaseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getFriendsRequest = () => new Promise((resolve, reject) => {
+const getFriendsRequest = uid => new Promise((resolve, reject) => {
   axios
-    .get(`${firebaseUrl}/friends.json`)
+    .get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
     .then((res) => {
       const friends = [];
       if (res.data !== null) {
@@ -19,6 +19,9 @@ const getFriendsRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`);
+
 export default {
   getFriendsRequest,
+  deleteFriend,
 };
