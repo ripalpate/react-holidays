@@ -1,0 +1,52 @@
+{
+  "friend1" : 
+    {
+      "name": "Callan M.",
+      "address": "1 Main Street, Nashville, TN 37209",
+      "phoneNumber": "1112223333",
+      "email": "callan@yomamma.com",
+      "relationship": "sister from another mother",
+      "isAvoiding": true,
+      "uid": "12OIAqpNK3cdtR1tYbv01LtOA5r2"
+    },
+    "friend2" :
+    {
+      "name": "Michelle B.",
+      "address": "12 East Street, Nashville, TN 37209",
+      "phoneNumber": "1112223333",
+      "email": "michelle@yomamma.com",
+      "relationship": "friend",
+      "isAvoiding": false,
+      "uid": "12OIAqpNK3cdtR1tYbv01LtOA5r2"
+    },
+    "friend3" :
+    {
+      "name": "Jasmine W.",
+      "address": "31 West Street, Nashville, TN 37209",
+      "phoneNumber": "1112223333",
+      "email": "jasmine@yomamma.com",
+      "relationship": "sister from another mother",
+      "isAvoiding": false,
+      "uid": "12OIAqpNK3cdtR1tYbv01LtOA5r2"
+    },
+    "friend4":
+    {
+      "name": "Feven M.",
+      "address": "21 Bridge Street, Nashville, TN 37209",
+      "phoneNumber": "1112223333",
+      "email": "feven@yomamma.com",
+      "relationship": "sister from another mother",
+      "isAvoiding": false,
+      "uid": "12OIAqpNK3cdtR1tYbv01LtOA5r2"
+    },
+    "friend5":
+    {
+      "name": "Hetal P.",
+      "address": "1 Main Street, Nashville, TN 37209",
+      "phoneNumber": "1112223333",
+      "email": "hp@redone.com",
+      "relationship": "sister",
+      "isAvoiding": false,
+      "uid": "12OIAqpNK3cdtR1tYbv01LtOA5r2"
+    }
+}
