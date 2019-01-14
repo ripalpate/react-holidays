@@ -55,7 +55,7 @@ class NewFriend extends React.Component {
     return (
       <div className="NewFriend">
         <h2>Add New Friend:</h2>
-        <form onSubmit={ this.formSubmit }>
+        <form className="friend-form" onSubmit={ this.formSubmit }>
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <input
