@@ -20,8 +20,12 @@ class Friends extends React.Component {
 
   changeView = (e) => {
     const view = e.currentTarget.id;
-    this.props.history.push(`/friends/:${view}/edit`);
+    this.props.history.push(`/${view}`);
   }
+  // changeView = (e) => {
+  //   const view = e.currentTarget.id;
+  //   this.props.history.push(`/friends/:${view}/edit`);
+  // }
 
   componentDidMount() {
     this.getFriends();
@@ -47,7 +51,10 @@ class Friends extends React.Component {
       deleteSingleFriend= {this.deleteOne}
       />));
     return (
+      <div>
+        <button className="btn btn-success" id="friends/new" onClick={this.changeView}>Add Friend</button>
         <div className="singleFriend mt-3 row">{singleFriendComponent}</div>
+      </div>
     );
   }
 }
