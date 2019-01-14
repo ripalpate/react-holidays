@@ -66,6 +66,7 @@ class NewFriend extends React.Component {
               placeholder="John Smith"
               value= {newFriend.name}
               onChange= {this.nameChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -78,6 +79,7 @@ class NewFriend extends React.Component {
               placeholder="500 Interstate Blvd, Nashville, TN-37210"
               value = {newFriend.address}
               onChange = {this.addressChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -90,6 +92,7 @@ class NewFriend extends React.Component {
               placeholder="615-123-3213"
               value = {newFriend.phoneNumber}
               onChange = {this.phoneNumberChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -102,6 +105,7 @@ class NewFriend extends React.Component {
               placeholder="yoyo@mamma.com"
               value = {newFriend.email}
               onChange = {this.emailChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -114,6 +118,7 @@ class NewFriend extends React.Component {
               placeholder="Mother"
               value = {newFriend.relationship}
               onChange = {this.relationshipChange}
+              required
             />
           </div>
           <button className="btn btn-success">Save Friend</button>
