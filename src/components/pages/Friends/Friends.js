@@ -22,10 +22,6 @@ class Friends extends React.Component {
     const view = e.currentTarget.id;
     this.props.history.push(`/${view}`);
   }
-  // changeView = (e) => {
-  //   const view = e.currentTarget.id;
-  //   this.props.history.push(`/friends/:${view}/edit`);
-  // }
 
   componentDidMount() {
     this.getFriends();
@@ -43,12 +39,19 @@ class Friends extends React.Component {
       }).catch(err => console.error(err));
   }
 
+  // passFriendToEdit = friendId => this.setState({ isEditing: true, editId: friendId });
+
+  passFriendToEdit = (friendId) => {
+    this.props.history.push(`/friends/${friendId}/edit`);
+  }
+
   render() {
     const singleFriendComponent = this.state.friends.map(friend => (
       <SingleFriend
       friend={friend}
       key={friend.id}
       deleteSingleFriend= {this.deleteOne}
+      passFriendToEdit = {this.passFriendToEdit}
       />));
     return (
       <div>

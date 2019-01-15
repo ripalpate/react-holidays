@@ -8,6 +8,7 @@ class SingleFriend extends React.Component {
   static propTypes = {
     message: friendsShape,
     deleteSingleFriend: PropTypes.func,
+    passFriendToEdit: PropTypes.func,
   }
 
   deleteEvent = (e) => {
@@ -16,17 +17,30 @@ class SingleFriend extends React.Component {
     deleteSingleFriend(friend.id);
   }
 
+  editEvent = (e) => {
+    e.preventDefault();
+    const { passFriendToEdit, friend } = this.props;
+    passFriendToEdit(friend.id);
+  }
+
   render() {
     const { friend } = this.props;
     const uid = authRequests.getCurrentUid();
     const makeButtons = () => {
       if (friend.uid === uid) {
         return (
+          <div>
             <span className="">
               <button className="btn btn-danger" onClick= {this.deleteEvent}>
                 <i className="fas fa-trash-alt"></i>
               </button>
             </span>
+            <span className="">
+              <button className="btn btn-success ml-2" onClick= {this.editEvent}>
+                <i className="fas fa-pencil-alt"></i>
+              </button>
+            </span>
+          </div>
         );
       }
       return <span className=""></span>;
@@ -39,7 +53,7 @@ class SingleFriend extends React.Component {
             <p className="card-text"> Address: {friend.address}</p>
             <p className="card-text">Phone Number: {friend.phoneNumber}</p>
             <p className="card-text">Email: {friend.email}</p>
-            <p className="card-text">{makeButtons()}</p>
+            {makeButtons()}
           </div>
         </div>
     );
