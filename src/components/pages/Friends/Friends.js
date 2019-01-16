@@ -4,7 +4,6 @@ import SingleFriend from '../SingleFriend/SingleFriend';
 import './Friends.scss';
 import authRequests from '../../../helpers/data/authRequests';
 
-// const firebaseId = this.props.match.params.id;
 class Friends extends React.Component {
   state = {
     friends: [],
@@ -38,8 +37,6 @@ class Friends extends React.Component {
           });
       }).catch(err => console.error(err));
   }
-
-  // passFriendToEdit = friendId => this.setState({ isEditing: true, editId: friendId });
 
   passFriendToEdit = (friendId) => {
     this.props.history.push(`/friends/${friendId}/edit`);
