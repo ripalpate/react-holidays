@@ -1,0 +1,24 @@
+import axios from 'axios';
+import apiKeys from '../apiKeys';
+
+const firebaseUrl = apiKeys.firebaseConfig.databaseURL;
+
+const getHolidaysRequest = uid => new Promise((resolve, reject) => {
+  axios
+    .get(`${firebaseUrl}/holidays.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((res) => {
+      const holidays = [];
+      if (res.data !== null) {
+        Object.keys(res.data).forEach((key) => {
+          res.data[key].id = key;
+          holidays.push(res.data[key]);
+        });
+      }
+      resolve(holidays);
+    })
+    .catch(err => reject(err));
+});
+
+export default {
+  getHolidaysRequest,
+};
