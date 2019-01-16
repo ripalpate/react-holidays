@@ -23,7 +23,15 @@ const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId
 
 const createFriend = friend => axios.post(`${firebaseUrl}/friends.json`, friend);
 
-const getSingleFriend = friendId => axios.get(`${firebaseUrl}/friends/${friendId}.json`);
+const getSingleFriend = friendId => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/friends/${friendId}.json`)
+    .then((result) => {
+      const singleFriend = result.data;
+      singleFriend.id = friendId;
+      resolve(singleFriend);
+    }).catch(err => reject(err));
+});
+
 
 const editFriend = (friendId, friend) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, friend);
 
