@@ -20,7 +20,7 @@ class Holidays extends React.Component {
 
   changeView = (e) => {
     const view = e.currentTarget.id;
-    this.props.history.push(`/holidays/:${view}`);
+    this.props.history.push(`${view}`);
   }
 
   componentDidMount() {
@@ -36,7 +36,7 @@ class Holidays extends React.Component {
   }
 
   render() {
-    const singleHolidayComponent = this.state.holidays.map(holiday =>(
+    const singleHolidayComponent = this.state.holidays.map(holiday => (
       <SingleHoliday
       holiday={holiday}
       key={holiday.id}
@@ -45,7 +45,7 @@ class Holidays extends React.Component {
     ));
     return (
       <div className="Holidays mx-auto">
-        <Button className="btn btn-success mt-5" id="1234" onClick={this.changeView}>Holiday Detail</Button>
+        <Button className="btn btn-success mt-5" id="holidays/new" onClick={this.changeView}>Add new Holiday</Button>
         <div className="singleHoliday mt-3 row">{singleHolidayComponent}</div>
       </div>
     );
