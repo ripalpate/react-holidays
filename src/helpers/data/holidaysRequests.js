@@ -19,6 +19,9 @@ const getHolidaysRequest = uid => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const deleteHoliday = holidayId => axios.delete(`${firebaseUrl}/holidays/${holidayId}.json`);
+
 export default {
   getHolidaysRequest,
+  deleteHoliday,
 };
