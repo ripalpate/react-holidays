@@ -27,11 +27,20 @@ class Holidays extends React.Component {
     this.getHolidays();
   }
 
+  deleteOne = (holidayId) => {
+    holidaysRequests.deleteHoliday(holidayId)
+      .then(() => {
+        this.getHolidays();
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     const singleHolidayComponent = this.state.holidays.map(holiday =>(
       <SingleHoliday
       holiday={holiday}
       key={holiday.id}
+      deleteSingleHoliday = {this.deleteOne}
       />
     ));
     return (
