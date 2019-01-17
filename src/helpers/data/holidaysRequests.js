@@ -23,8 +23,22 @@ const deleteHoliday = holidayId => axios.delete(`${firebaseUrl}/holidays/${holid
 
 const createHoliday = holiday => axios.post(`${firebaseUrl}/holidays.json`, holiday);
 
+const getSingleHoliday = holidayId => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/holidays/${holidayId}.json`)
+    .then((result) => {
+      const singleHoliday = result.data;
+      singleHoliday.id = holidayId;
+      resolve(singleHoliday);
+    }).catch(err => reject(err));
+});
+
+
+const editHoliday = (holidayId, holiday) => axios.put(`${firebaseUrl}/holidays/${holidayId}.json`, holiday);
+
 export default {
   getHolidaysRequest,
   deleteHoliday,
   createHoliday,
+  getSingleHoliday,
+  editHoliday,
 };

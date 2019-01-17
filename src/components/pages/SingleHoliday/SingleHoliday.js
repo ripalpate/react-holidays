@@ -7,12 +7,19 @@ class SingleHoilday extends React.Component {
   static propTypes = {
     holiday: holidaysShape,
     deleteSingleHoliday: PropTypes.func,
+    passHolidayToEdit: PropTypes.func,
   }
 
   deleteEvent = (e) => {
     e.preventDefault();
     const { deleteSingleHoliday, holiday } = this.props;
     deleteSingleHoliday(holiday.id);
+  }
+
+  editEvent = (e) => {
+    e.preventDefault();
+    const { passHolidayToEdit, holiday } = this.props;
+    passHolidayToEdit(holiday.id);
   }
 
   render() {
@@ -25,7 +32,7 @@ class SingleHoilday extends React.Component {
               </button>
             </span>
             <span className="">
-              <button className="btn btn-success ml-2">
+              <button className="btn btn-success ml-2" onClick={this.editEvent}>
                 <i className="fas fa-pencil-alt"></i>
               </button>
             </span>
