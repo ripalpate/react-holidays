@@ -63,7 +63,7 @@ class NewHoliday extends React.Component {
               className="form-control"
               id="name"
               aria-describedby="nameHelp"
-              placeholder="John Smith"
+              placeholder="Halloween"
               value= {newHoliday.name}
               onChange= {this.nameChange}
             />
@@ -116,7 +116,7 @@ class NewHoliday extends React.Component {
               onChange = {this.startTimeChange}
             />
           </div>
-          <button className="btn btn-success">Save Friend</button>
+          <button className="btn btn-success">Save Holiday</button>
         </form>
       </div>
     );

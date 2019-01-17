@@ -24,9 +24,10 @@ const deleteHoliday = holidayId => axios.delete(`${firebaseUrl}/holidays/${holid
 const createHoliday = holiday => axios.post(`${firebaseUrl}/holidays.json`, holiday);
 
 const getSingleHoliday = holidayId => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/friends/${holidayId}.json`)
+  axios.get(`${firebaseUrl}/holidays/${holidayId}.json`)
     .then((result) => {
       const singleHoliday = result.data;
+      console.log(singleHoliday);
       singleHoliday.id = holidayId;
       resolve(singleHoliday);
     }).catch(err => reject(err));
