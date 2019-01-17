@@ -27,7 +27,6 @@ const getSingleHoliday = holidayId => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/holidays/${holidayId}.json`)
     .then((result) => {
       const singleHoliday = result.data;
-      console.log(singleHoliday);
       singleHoliday.id = holidayId;
       resolve(singleHoliday);
     }).catch(err => reject(err));
