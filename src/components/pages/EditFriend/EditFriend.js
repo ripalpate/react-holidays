@@ -88,7 +88,7 @@ class EditFriend extends React.Component {
               id="address"
               aria-describedby="addressHelp"
               value= {editedFriend.address}
-              onChange= {this.nameChange}
+              onChange= {this.addressChange}
             />
           </div>
           <div className="form-group">
@@ -99,7 +99,7 @@ class EditFriend extends React.Component {
               id="phoneNumber"
               aria-describedby="phoneNumberHelp"
               value= {editedFriend.phoneNumber}
-              onChange= {this.nameChange}
+              onChange= {this.phoneNumberChange}
             />
           </div>
           <div className="form-group">
@@ -110,7 +110,7 @@ class EditFriend extends React.Component {
               id="email"
               aria-describedby="emailHelp"
               value= {editedFriend.email}
-              onChange= {this.nameChange}
+              onChange= {this.emailChange}
             />
           </div>
           <div className="form-group">
@@ -121,10 +121,10 @@ class EditFriend extends React.Component {
               id="relationship"
               aria-describedby="relationHelp"
               value= {editedFriend.relationship}
-              onChange= {this.nameChange}
+              onChange= {this.relationshipChange}
             />
           </div>
-          <button className="btn btn-success">Save Friend</button>
+          <button className="btn btn-success">Save Edited Friend</button>
         </form>
       </div>
     );
