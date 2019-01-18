@@ -30,21 +30,13 @@ class HolidayDetail extends React.Component {
       }).catch(err => console.error(err));
   }
 
-  changeViewFriend = (e) => {
-    const view = e.currentTarget.id;
-    this.props.history.push(`/holidays/:${view}/friends`);
+  changeViewToHolidayFriend = (e) => {
+    const view = this.props.match.params.id;
+    this.props.history.push(`/holidays/${view}/friends`);
   }
 
   render() {
     const { singleHoliday, friends, friendDetailView } = this.state;
-
-    // const friendsStringBuilder = () => {
-    //   let friendString = '<h3>Friends:</h3>';
-    //   friends.forEach((friend) => {
-    //     friendString += `<h5>${friend.name}</h5>`;
-    //   });
-    //   return friendString;
-    // };
 
     const attendingFriend = friends.map(friend => (
       <SingleFriend
@@ -56,7 +48,7 @@ class HolidayDetail extends React.Component {
     ));
     return (
       <div className="HolidayDetail mx-auto">
-        <Button className ="btn btn-success m-5" id="1234" onClick={this.changeViewFriend}>Add Friends To Holiday</Button>
+        <Button className ="btn btn-success m-5" id="1234" onClick={this.changeViewToHolidayFriend}>Add Friends To Holiday</Button>
         <div className="card ml-4 single-holiday-card bg-light mb-3">
           <div className="img-holder">
           <img className="card-img-top holiday-img" src={singleHoliday.imageUrl} alt="holiday"/>
