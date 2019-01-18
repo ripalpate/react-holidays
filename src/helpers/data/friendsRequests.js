@@ -32,8 +32,26 @@ const getSingleFriend = friendId => new Promise((resolve, reject) => {
     }).catch(err => reject(err));
 });
 
-
 const editFriend = (friendId, friend) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, friend);
+
+const getFriendsByArrayOfIds = (uid, friendIdsArray) => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((result) => {
+      const friendsObject = result.data;
+      const friendsArray = [];
+      if (friendsObject !== null) {
+        Object.keys(friendsObject).forEach((friendId) => {
+          friendsObject[friendId].id = friendId;
+          friendsArray.push(friendsObject[friendId]);
+        });
+      }
+      const selectedFriends = friendsArray.filter(x => friendIdsArray.includes(x.id));
+      resolve(selectedFriends);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
 
 export default {
   getFriendsRequest,
@@ -41,4 +59,5 @@ export default {
   createFriend,
   getSingleFriend,
   editFriend,
+  getFriendsByArrayOfIds,
 };

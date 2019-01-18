@@ -8,6 +8,7 @@ class SingleHoilday extends React.Component {
     holiday: holidaysShape,
     deleteSingleHoliday: PropTypes.func,
     passHolidayToEdit: PropTypes.func,
+    holidayDetailView: PropTypes.func,
   }
 
   deleteEvent = (e) => {
@@ -20,6 +21,12 @@ class SingleHoilday extends React.Component {
     e.preventDefault();
     const { passHolidayToEdit, holiday } = this.props;
     passHolidayToEdit(holiday.id);
+  }
+
+  changeHolidayToDetailView = (e) => {
+    e.preventDefault();
+    const { holidayDetailView, holiday } = this.props;
+    holidayDetailView(holiday.id);
   }
 
   render() {
@@ -41,16 +48,16 @@ class SingleHoilday extends React.Component {
 
     return (
       <div className="card ml-4 single-holiday-card bg-light mb-3">
-        <div className="img-holder">
+        <div className="img-holder" onClick={this.changeHolidayToDetailView}>
         <img className="card-img-top holiday-img" src={holiday.imageUrl} alt="holiday"/>
         </div>
-        <div className="card-body">
+        <div className="card-body" onClick={this.changeHolidayToDetailView}>
           <h5 className="card-title">Name: {holiday.name}</h5>
           <p className="card-text"> Date: {holiday.Date}</p>
           <p className="card-text">Location: {holiday.location}</p>
           <p className="card-text">Start Time: {holiday.startTime}</p>
-          {makeButtons()}
         </div>
+        <div className="card-body">{makeButtons()}</div>
       </div>
     );
   }
