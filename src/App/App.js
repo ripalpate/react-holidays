@@ -18,7 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import HolidayDetail from '../components/pages/HolidayDetail/HolidayDetail';
 import EditHoliday from '../components/pages/EditHoliday/EditHoliday';
-import holidayFriends from '../components/pages/HolidayFriends/HolidayFriends';
+import HolidayFriends from '../components/pages/HolidayFriends/HolidayFriends';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -90,7 +90,7 @@ class App extends React.Component {
                 <PrivateRoute path="/holidays/new" authed={this.state.authed} component={NewHoliday}/>
                 <PrivateRoute exact path="/holidays/:id" authed={this.state.authed} component={HolidayDetail}/>
                 <PrivateRoute path="/holidays/:id/edit" authed={this.state.authed} component={EditHoliday}/>
-                <PrivateRoute path="/holidays/:id/friends" authed={this.state.authed} component={holidayFriends}/>
+                <PrivateRoute path="/holidays/:id/friends" authed={this.state.authed} component={HolidayFriends}/>
                 <PublicRoute path="/auth" component={Auth} authed={this.state.authed}/>
               </Switch>
 

@@ -6,7 +6,7 @@ import authRequests from '../../../helpers/data/authRequests';
 
 class SingleFriend extends React.Component {
   static propTypes = {
-    message: friendsShape,
+    friend: friendsShape,
     deleteSingleFriend: PropTypes.func,
     passFriendToEdit: PropTypes.func,
     friendDetailView: PropTypes.bool,
